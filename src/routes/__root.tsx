@@ -9,6 +9,12 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { TopBar } from "@/components/site/TopBar";
+import { Navbar } from "@/components/site/Navbar";
+import { Footer } from "@/components/site/Footer";
+import { FloatingButtons } from "@/components/site/FloatingButtons";
+import { CursorGlow } from "@/components/site/CursorGlow";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
 
 function NotFoundComponent() {
   return (
@@ -72,18 +78,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "VS Electrical Luminary is a premium, modern, and responsive website for industrial electrical services." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "VS Electrical Luminary is a premium, modern, and responsive website for industrial electrical services." },
+      { title: "VS Electrical Services & Maintenance" },
+      { name: "description", content: "Trusted industrial electrical, commercial, solar and HT/LT cable services since 2019. 800MW+ of solar project experience across India." },
+      { name: "author", content: "VS Electrical" },
+      { property: "og:title", content: "VS Electrical Services & Maintenance" },
+      { property: "og:description", content: "Industrial • Commercial • Solar • Maintenance. Engineered electrical execution since 2019." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "VS Electrical Luminary is a premium, modern, and responsive website for industrial electrical services." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fca97feb-5c06-4a5b-a8f8-36ca320e28e1/id-preview-9527526b--b23097fb-e098-4083-95a5-8f7ea1f6a731.lovable.app-1778418327502.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fca97feb-5c06-4a5b-a8f8-36ca320e28e1/id-preview-9527526b--b23097fb-e098-4083-95a5-8f7ea1f6a731.lovable.app-1778418327502.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "VS Electrical Services & Maintenance" },
+      { name: "twitter:description", content: "Industrial • Commercial • Solar • Maintenance. Engineered electrical execution since 2019." },
     ],
     links: [
       {
@@ -117,7 +120,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ScrollProgress />
+      <CursorGlow />
+      <TopBar />
+      <Navbar />
       <Outlet />
+      <Footer />
+      <FloatingButtons />
     </QueryClientProvider>
   );
 }

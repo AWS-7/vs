@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap, Phone, MessageCircle } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { contact } from "@/lib/site-data";
 
 const links = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#projects", label: "Projects" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#contact", label: "Contact" },
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
+  { to: "/projects", label: "Projects" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -38,7 +39,7 @@ export function Navbar() {
             scrolled ? "glass-strong shadow-elegant border-white/15" : "glass border-white/10"
           }`}
         >
-          <a href="#home" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <div className="relative">
               <div className="absolute inset-0 bg-electric blur-md opacity-60 group-hover:opacity-100 transition-opacity" />
               <div className="relative h-9 w-9 rounded-xl bg-gradient-to-br from-electric to-electric-glow flex items-center justify-center">
@@ -49,18 +50,19 @@ export function Navbar() {
               <div className="font-display font-bold text-sm sm:text-base tracking-tight">VS Electrical</div>
               <div className="text-[10px] sm:text-[11px] text-muted-foreground -mt-0.5">Services & Maintenance</div>
             </div>
-          </a>
+          </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+              <Link
+                key={l.to}
+                to={l.to}
+                activeProps={{ className: "text-gold" }}
                 className="px-3 py-2 text-sm text-foreground/80 hover:text-foreground rounded-lg transition-colors relative group"
               >
                 {l.label}
                 <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-gradient-to-r from-electric to-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -111,18 +113,15 @@ export function Navbar() {
 
                 <nav className="grid gap-3">
                   {links.map((l, idx) => (
-                    <motion.a
-                      key={l.href}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.05 * idx }}
-                      href={l.href}
+                    <Link
+                      key={l.to}
+                      to={l.to}
                       onClick={() => setOpen(false)}
                       className="rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-base font-semibold flex items-center justify-between group"
                     >
                       {l.label}
                       <span className="h-1 w-10 rounded-full bg-gradient-to-r from-electric to-gold opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </motion.a>
+                    </Link>
                   ))}
                 </nav>
 

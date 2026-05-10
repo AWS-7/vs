@@ -1,6 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Navbar } from "@/components/site/Navbar";
-import { TopBar } from "@/components/site/TopBar";
 import { Loader } from "@/components/site/Loader";
 import { Hero } from "@/components/site/Hero";
 import { About } from "@/components/site/About";
@@ -12,10 +10,6 @@ import { BeforeAfter } from "@/components/site/BeforeAfter";
 import { ServiceArea } from "@/components/site/ServiceArea";
 import { Testimonials } from "@/components/site/Testimonials";
 import { Contact } from "@/components/site/Contact";
-import { Footer } from "@/components/site/Footer";
-import { FloatingButtons } from "@/components/site/FloatingButtons";
-import { CursorGlow } from "@/components/site/CursorGlow";
-import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { LogoMarquee } from "@/components/site/LogoMarquee";
 import { FAQ } from "@/components/site/FAQ";
 import { BrochureCTA } from "@/components/site/BrochureCTA";
@@ -37,12 +31,8 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="relative">
-      <ScrollProgress />
-      <CursorGlow />
       <HiddenSEO />
       <Loader />
-      <TopBar />
-      <Navbar />
       <Hero />
       <About />
       <Services />
@@ -56,8 +46,6 @@ function Index() {
       <FAQ />
       <Contact />
       <BrochureCTA />
-      <Footer />
-      <FloatingButtons />
     </main>
   );
 }
