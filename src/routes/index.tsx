@@ -19,6 +19,7 @@ import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { LogoMarquee } from "@/components/site/LogoMarquee";
 import { FAQ } from "@/components/site/FAQ";
 import { BrochureCTA } from "@/components/site/BrochureCTA";
+import { HiddenSEO } from "@/components/site/HiddenSEO";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,6 +39,7 @@ function Index() {
     <main className="relative">
       <ScrollProgress />
       <CursorGlow />
+      <HiddenSEO />
       <Loader />
       <TopBar />
       <Navbar />
