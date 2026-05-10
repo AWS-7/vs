@@ -26,7 +26,7 @@ export function Gallery() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
-          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-4">Project Gallery</span>
+          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold font-highlight mb-4">Project Gallery</span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-balance">
             On-site <span className="gradient-text-gold">execution</span>, captured
           </h2>

@@ -29,7 +29,7 @@ export function About() {
               <img src={aboutImg} alt="VS Electrical engineer at work" className="w-full h-[500px] sm:h-[600px] object-cover" loading="lazy" width={1280} height={1280} />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 glass-strong rounded-2xl p-4 sm:p-5">
-                <div className="text-3xl sm:text-4xl font-display font-bold gradient-text-gold">Since 2019</div>
+                <div className="text-3xl sm:text-4xl font-display font-bold gradient-text-gold font-highlight">Since 2019</div>
                 <div className="text-xs sm:text-sm text-muted-foreground mt-1">Trusted Electrical & Solar Service Provider</div>
               </div>
             </div>
@@ -41,7 +41,7 @@ export function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-4">About VS Electrical</span>
+            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold font-highlight mb-4 font-highlight">About VS Electrical</span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-balance">
               Engineering <span className="gradient-text-electric">power</span> for industries that never stop.
             </h2>

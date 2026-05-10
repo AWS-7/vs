@@ -26,7 +26,7 @@ export function BeforeAfter() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
-          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-4">Before / After</span>
+          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold font-highlight mb-4">Before / After</span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-balance">
             Real <span className="gradient-text-electric">transformations</span> from our maintenance team
           </h2>

@@ -21,7 +21,7 @@ function HeroCounter({ value, suffix = "" }: { value: number; suffix?: string })
 
 export function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-[100dvh] sm:min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <img src={heroImg} alt="Industrial electrical infrastructure" className="h-full w-full object-cover scale-105" width={1920} height={1080} />
@@ -54,17 +54,19 @@ export function Hero() {
 
       <div className="absolute inset-0 bg-gradient-to-br from-white/3 via-transparent to-white/0 opacity-20" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-16 sm:pb-20 w-full">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-3 rounded-full glass px-4 py-2 text-xs sm:text-sm mb-6 animate-flicker ring-1 ring-white/5 shadow-glow"
+            className="inline-flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 rounded-2xl sm:rounded-full glass px-3 py-2 sm:px-4 sm:py-2 text-[11px] sm:text-sm mb-5 sm:mb-6 animate-flicker ring-1 ring-white/5 shadow-glow"
           >
-            <Sparkles className="h-4 w-4 text-gold" />
-            <span className="text-foreground/90">Trusted Electrical & Solar Partner — Serving Since 2019</span>
-            <span className="flex items-center gap-1 rounded-full bg-electric/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em]">
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-3.5 w-3.5 text-gold shrink-0" />
+              <span className="text-foreground/90">Trusted Electrical & Solar Partner — Serving Since 2019</span>
+            </div>
+            <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-electric/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em]">
               <Play className="h-3 w-3" /> Cinematic Ops
             </span>
           </motion.div>
@@ -73,7 +75,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] text-balance"
+            className="font-display text-[1.65rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] sm:leading-[1.05] text-balance"
           >
             Powering Industries With{" "}
             <span className="gradient-text-electric">Trusted Electrical</span>{" "}
@@ -93,18 +95,18 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4"
           >
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-electric to-electric-glow px-6 sm:px-8 py-4 text-sm sm:text-base font-semibold text-white shadow-glow hover:shadow-[0_0_60px_-5px_oklch(0.58_0.24_258_/_0.7)] transition-all hover:-translate-y-0.5"
+              className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-electric to-electric-glow px-5 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-glow hover:shadow-[0_0_60px_-5px_oklch(0.58_0.24_258_/_0.7)] transition-all hover:-translate-y-0.5"
             >
               Get a Quote
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href={`tel:${contact.phones[0].replace(/\s/g, "")}`}
-              className="inline-flex items-center gap-2 rounded-2xl glass-strong px-6 sm:px-8 py-4 text-sm sm:text-base font-semibold text-foreground hover:bg-white/10 transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl glass-strong px-5 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-foreground hover:bg-white/10 transition-all hover:-translate-y-0.5"
             >
               <Phone className="h-4 w-4 text-gold" /> Call Now
             </a>
@@ -112,9 +114,9 @@ export function Hero() {
               href={`https://wa.me/${contact.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl bg-[oklch(0.65_0.18_150)]/80 px-6 sm:px-8 py-4 text-sm sm:text-base font-semibold text-white shadow-elegant hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[oklch(0.65_0.18_150)]/80 px-5 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-elegant hover:-translate-y-0.5 transition-all"
             >
-              <MessageCircle className="h-4 w-4" /> WhatsApp Support
+              <MessageCircle className="h-4 w-4" /> WhatsApp
             </a>
           </motion.div>
 
@@ -122,7 +124,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}
-            className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl"
+            className="mt-10 sm:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 max-w-3xl"
           >
             {[
               { node: <><HeroCounter value={648} />MW+</>, v: "Solar Projects" },
@@ -130,12 +132,12 @@ export function Hero() {
               { node: "24/7", v: "Emergency Support" },
               { node: <><HeroCounter value={1000} />+</>, v: "Maintenance Works" },
             ].map((s, i) => (
-              <div key={i} className="relative glass rounded-2xl px-4 py-3 flex items-center gap-3 overflow-hidden">
-                <div className="absolute inset-0 ring-pulse rounded-2xl" />
-                <ShieldCheck className="h-5 w-5 text-gold shrink-0" />
-                <div>
-                  <div className="font-display text-lg sm:text-xl font-bold gradient-text-gold leading-tight">{s.node}</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider">{s.v}</div>
+              <div key={i} className="relative glass rounded-xl sm:rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-3 overflow-hidden">
+                <div className="absolute inset-0 ring-pulse rounded-xl sm:rounded-2xl" />
+                <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5 text-gold shrink-0" />
+                <div className="min-w-0">
+                  <div className="font-display text-base sm:text-lg md:text-xl font-bold gradient-text-gold leading-tight">{s.node}</div>
+                  <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider truncate">{s.v}</div>
                 </div>
               </div>
             ))}

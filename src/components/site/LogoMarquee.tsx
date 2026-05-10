@@ -14,7 +14,7 @@ export function LogoMarquee() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-navy/25 to-transparent" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-3">Trusted By Industry Leaders</span>
+          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold font-highlight mb-3">Trusted By Industry Leaders</span>
           <h3 className="font-display text-2xl sm:text-3xl font-bold text-balance">Partners powering India’s largest assets</h3>
         </div>
 

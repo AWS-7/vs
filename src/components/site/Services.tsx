@@ -13,7 +13,7 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-4">Our Services</span>
+          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold font-highlight mb-4">Our Services</span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-balance">
             Comprehensive <span className="gradient-text-electric">electrical & solar</span> solutions
           </h2>

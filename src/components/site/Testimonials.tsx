@@ -13,7 +13,7 @@ export function Testimonials() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
-          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-4">Testimonials</span>
+          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold font-highlight mb-4">Testimonials</span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-balance">
             What our <span className="gradient-text-electric">clients</span> say
           </h2>
