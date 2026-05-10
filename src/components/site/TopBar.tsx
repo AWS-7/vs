@@ -3,7 +3,7 @@ import { contact } from "@/lib/site-data";
 
 export function TopBar() {
   return (
-    <div className="fixed inset-x-0 top-0 z-[60] bg-gradient-to-r from-navy-deep via-graphite to-navy-deep border-b border-gold/20 text-xs sm:text-sm">
+    <div className="fixed inset-x-0 top-0 z-[60] bg-gradient-to-r from-navy-deep via-graphite to-navy-deep border-b border-gold/20 text-xs sm:text-sm shadow-glow">
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 h-9 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2 min-w-0">
           <Zap className="h-3.5 w-3.5 text-gold animate-flicker shrink-0" />

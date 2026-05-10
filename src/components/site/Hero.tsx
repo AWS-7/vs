@@ -1,6 +1,6 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { ArrowRight, Phone, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Phone, ShieldCheck, Sparkles, MessageCircle, Play } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import { contact } from "@/lib/site-data";
 import { Particles } from "./Particles";
@@ -24,9 +24,10 @@ export function Hero() {
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={heroImg} alt="Industrial electrical infrastructure" className="h-full w-full object-cover" width={1920} height={1080} />
+        <img src={heroImg} alt="Industrial electrical infrastructure" className="h-full w-full object-cover scale-105" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/85 to-navy-deep/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-transparent to-navy-deep/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-transparent to-navy-deep/65" />
+        <div className="absolute inset-0 mix-blend-screen opacity-50 bg-[radial-gradient(circle_at_20%_20%,oklch(0.58_0.24_258/_0.35),transparent_25%),radial-gradient(circle_at_80%_30%,oklch(0.84_0.17_85/_0.25),transparent_22%)]" />
       </div>
 
       {/* Glow effects */}
@@ -49,7 +50,9 @@ export function Hero() {
         ))}
       </svg>
 
-      <Particles count={30} />
+      <Particles count={36} />
+
+      <div className="absolute inset-0 bg-gradient-to-br from-white/3 via-transparent to-white/0 opacity-20" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full">
         <div className="max-w-4xl">
@@ -57,10 +60,13 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs sm:text-sm mb-6 animate-flicker"
+            className="inline-flex items-center gap-3 rounded-full glass px-4 py-2 text-xs sm:text-sm mb-6 animate-flicker ring-1 ring-white/5 shadow-glow"
           >
             <Sparkles className="h-4 w-4 text-gold" />
             <span className="text-foreground/90">Trusted Electrical & Solar Partner — Serving Since 2019</span>
+            <span className="flex items-center gap-1 rounded-full bg-electric/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em]">
+              <Play className="h-3 w-3" /> Cinematic Ops
+            </span>
           </motion.div>
 
           <motion.h1
@@ -102,6 +108,14 @@ export function Hero() {
             >
               <Phone className="h-4 w-4 text-gold" /> Call Now
             </a>
+            <a
+              href={`https://wa.me/${contact.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[oklch(0.65_0.18_150)]/80 px-6 sm:px-8 py-4 text-sm sm:text-base font-semibold text-white shadow-elegant hover:-translate-y-0.5 transition-all"
+            >
+              <MessageCircle className="h-4 w-4" /> WhatsApp Support
+            </a>
           </motion.div>
 
           <motion.div
@@ -114,9 +128,10 @@ export function Hero() {
               { node: <><HeroCounter value={648} />MW+</>, v: "Solar Projects" },
               { node: <><HeroCounter value={500} />+</>, v: "Industrial Clients" },
               { node: "24/7", v: "Emergency Support" },
-              { node: <><HeroCounter value={1000} />+</>, v: "Maintenance Tasks" },
+              { node: <><HeroCounter value={1000} />+</>, v: "Maintenance Works" },
             ].map((s, i) => (
-              <div key={i} className="glass rounded-2xl px-4 py-3 flex items-center gap-3">
+              <div key={i} className="relative glass rounded-2xl px-4 py-3 flex items-center gap-3 overflow-hidden">
+                <div className="absolute inset-0 ring-pulse rounded-2xl" />
                 <ShieldCheck className="h-5 w-5 text-gold shrink-0" />
                 <div>
                   <div className="font-display text-lg sm:text-xl font-bold gradient-text-gold leading-tight">{s.node}</div>

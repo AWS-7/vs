@@ -4,7 +4,17 @@ import { contact } from "@/lib/site-data";
 
 export function FloatingButtons() {
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
+    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
+        className="glass-strong rounded-2xl px-4 py-3 shadow-card border border-white/10 text-xs text-muted-foreground backdrop-blur-xl max-w-[220px]"
+      >
+        <div className="text-foreground font-semibold text-sm">24/7 Emergency Desk</div>
+        <div className="mt-1">We respond in minutes for HT/LT faults and solar outages.</div>
+      </motion.div>
+
       <motion.a
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap, Phone } from "lucide-react";
+import { Menu, X, Zap, Phone, MessageCircle } from "lucide-react";
 import { contact } from "@/lib/site-data";
 
 const links = [
@@ -34,8 +34,8 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
-          className={`flex items-center justify-between rounded-2xl px-4 sm:px-6 py-3 transition-all duration-500 ${
-            scrolled ? "glass-strong shadow-elegant" : "glass"
+          className={`flex items-center justify-between rounded-2xl px-4 sm:px-6 py-3 transition-all duration-500 border ${
+            scrolled ? "glass-strong shadow-elegant border-white/15" : "glass border-white/10"
           }`}
         >
           <a href="#home" className="flex items-center gap-2 group">
@@ -84,23 +84,65 @@ export function Navbar() {
         <AnimatePresence>
           {open && (
             <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              className="lg:hidden mt-2 glass-strong rounded-2xl p-3"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="lg:hidden fixed inset-0 z-40 bg-navy/95 backdrop-blur-3xl"
             >
-              <nav className="flex flex-col">
-                {links.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,oklch(0.58_0.24_258/_0.25),transparent_35%),radial-gradient(circle_at_80%_60%,oklch(0.84_0.17_85/_0.18),transparent_30%)]" />
+              <div className="relative mx-auto max-w-5xl px-6 pt-24 pb-12 space-y-8">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-electric to-electric-glow flex items-center justify-center shadow-glow">
+                      <Zap className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-display font-bold text-lg">VS Electrical</div>
+                      <div className="text-[11px] text-muted-foreground">Trusted since 2019</div>
+                    </div>
+                  </div>
+                  <button
                     onClick={() => setOpen(false)}
-                    className="px-4 py-3 rounded-xl hover:bg-white/5 text-sm"
+                    className="rounded-full border border-white/10 p-2 hover:bg-white/10"
                   >
-                    {l.label}
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+
+                <nav className="grid gap-3">
+                  {links.map((l, idx) => (
+                    <motion.a
+                      key={l.href}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.05 * idx }}
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      className="rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-base font-semibold flex items-center justify-between group"
+                    >
+                      {l.label}
+                      <span className="h-1 w-10 rounded-full bg-gradient-to-r from-electric to-gold opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </motion.a>
+                  ))}
+                </nav>
+
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <a
+                    href={`tel:${contact.phones[0].replace(/\s/g, "")}`}
+                    className="flex items-center gap-3 rounded-2xl bg-gradient-to-r from-electric to-electric-glow px-4 py-4 text-white font-semibold shadow-glow"
+                  >
+                    <Phone className="h-5 w-5" /> Call {contact.phones[0]}
                   </a>
-                ))}
-              </nav>
+                  <a
+                    href={`https://wa.me/${contact.whatsapp}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 rounded-2xl glass-strong px-4 py-4 font-semibold text-foreground"
+                  >
+                    <MessageCircle className="h-5 w-5 text-gold" /> WhatsApp Support
+                  </a>
+                </div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

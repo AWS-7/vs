@@ -14,6 +14,11 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
+import { CursorGlow } from "@/components/site/CursorGlow";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { LogoMarquee } from "@/components/site/LogoMarquee";
+import { FAQ } from "@/components/site/FAQ";
+import { BrochureCTA } from "@/components/site/BrochureCTA";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,6 +36,8 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="relative">
+      <ScrollProgress />
+      <CursorGlow />
       <Loader />
       <TopBar />
       <Navbar />
@@ -39,11 +46,14 @@ function Index() {
       <Services />
       <WhyChooseUs />
       <Projects />
+      <LogoMarquee />
       <Gallery />
       <BeforeAfter />
       <ServiceArea />
       <Testimonials />
+      <FAQ />
       <Contact />
+      <BrochureCTA />
       <Footer />
       <FloatingButtons />
     </main>

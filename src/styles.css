@@ -1,14 +1,14 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss";
 @source "../src";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @theme inline {
   --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Poppins', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Poppins', system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -150,6 +150,53 @@
   }
 
   .text-balance { text-wrap: balance; }
+
+  .cursor-glow {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+  }
+
+  .cursor-glow::before,
+  .cursor-glow::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 9999px;
+    filter: blur(120px);
+    opacity: 0.4;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+  }
+
+  .cursor-glow::before { background: oklch(0.58 0.24 258 / 0.65); }
+  .cursor-glow::after { background: oklch(0.84 0.17 85 / 0.35); }
+
+  .shine-border {
+    position: relative;
+    overflow: hidden;
+  }
+  .shine-border::after {
+    content: "";
+    position: absolute;
+    inset: -150%;
+    background: conic-gradient(from 180deg, transparent 0%, oklch(0.58 0.24 258 / 0.15) 25%, transparent 50%, oklch(0.84 0.17 85 / 0.12) 75%, transparent 100%);
+    animation: spin-slow 12s linear infinite;
+    pointer-events: none;
+  }
+
+  .marquee {
+    display: flex;
+    gap: 2.5rem;
+    animation: marquee 18s linear infinite;
+  }
+
+  .ring-pulse {
+    box-shadow: 0 0 0 0 oklch(0.58 0.24 258 / 0.55);
+    animation: ring 2.4s infinite;
+  }
 }
 
 @keyframes glow-pulse {
@@ -165,6 +212,21 @@
   55% { opacity: 1; }
 }
 .animate-flicker { animation: electric-flicker 6s ease-in-out infinite; }
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes ring {
+  0% { box-shadow: 0 0 0 0 oklch(0.58 0.24 258 / 0.45); }
+  70% { box-shadow: 0 0 0 16px oklch(0.58 0.24 258 / 0); }
+  100% { box-shadow: 0 0 0 0 oklch(0.58 0.24 258 / 0); }
+}
 
 @keyframes float-y {
   0%,100% { transform: translateY(0); }

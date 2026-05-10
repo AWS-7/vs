@@ -60,7 +60,10 @@ export function Footer() {
 
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <div>© {new Date().getFullYear()} VS Electrical Services & Maintenance. All rights reserved.</div>
-          <div>Engineered with precision · Powered by trust</div>
+          <div className="text-center sm:text-right">
+            <div>Engineered with precision · Powered by trust</div>
+            <div className="text-foreground/80">Developed By AWS-Agni Web Solution - 9080700642</div>
+          </div>
         </div>
       </div>
     </footer>

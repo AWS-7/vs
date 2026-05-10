@@ -22,24 +22,29 @@ export function Services() {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-16 grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
           {services.map((s, i) => (
             <motion.div
               key={s.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: (i % 6) * 0.05 }}
-              className="group relative glass rounded-2xl p-6 overflow-hidden hover:border-electric/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-glow"
+              transition={{ duration: 0.55, delay: (i % 6) * 0.06 }}
+              className="group relative glass rounded-2xl p-6 overflow-hidden hover:border-electric/50 transition-all duration-600 hover:-translate-y-1 hover:shadow-glow"
+              style={{ transformStyle: "preserve-3d" }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-electric/0 to-gold/0 group-hover:from-electric/5 group-hover:to-gold/5 transition-all duration-500" />
               <div className="absolute -top-12 -right-12 h-40 w-40 rounded-full bg-electric/0 group-hover:bg-electric/10 blur-3xl transition-all duration-500" />
+              <div className="absolute inset-0 border border-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-              <div className="relative">
-                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-navy to-graphite border border-white/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+              <div className="relative will-change-transform group-hover:-translate-y-0.5 transition-transform" style={{ transform: "translateZ(12px)" }}>
+                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-navy to-graphite border border-white/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-card">
                   <s.icon className="h-6 w-6 text-electric-glow group-hover:text-gold transition-colors" />
                 </div>
-                <h3 className="font-display font-semibold text-lg mb-2 group-hover:text-gold transition-colors">{s.title}</h3>
+                <h3 className="font-display font-semibold text-lg mb-2 group-hover:text-gold transition-colors flex items-center gap-2">
+                  {s.title}
+                  <span className="h-1 w-6 rounded-full bg-gradient-to-r from-electric to-gold opacity-0 group-hover:opacity-100 transition-opacity" />
+                </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
             </motion.div>
